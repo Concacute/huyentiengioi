@@ -13,4 +13,4 @@ EXPOSE 8069
 USER odoo
 
 # Lệnh khởi chạy chỉ dùng config và addons
-CMD ["odoo", "--config=/etc/odoo/odoo.conf", "--addons-path=/mnt/custom_addons,/usr/lib/python3/dist-packages/odoo/addons"]
+CMD ["sh", "-c", "odoo --config=/etc/odoo/odoo.conf --init base --without-demo=all --stop-after-init && odoo --config=/etc/odoo/odoo.conf --addons-path=/mnt/custom_addons,/usr/lib/python3/dist-packages/odoo/addons"]
