@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_import_wizard_form" model="ir.ui.view">
+        <field name="name">crafting.import.wizard.form</field>
+        <field name="model">crafting.import.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="Import Items từ CSV">
+                        <label for="csv_file" string="Chọn file CSV để import items" class="o_form_label"/>
+                        <field name="csv_file" filename="file_name"/>
+                        <field name="file_name" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_import" string="Import" type="object" class="btn-primary"/>
+                        <button string="Hủy" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_wizard" model="ir.actions.act_window">
+        <field name="name">Import Items từ CSV</field>
+        <field name="res_model">crafting.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_import_wizard_form"/>
+    </record>
+
+    <!-- Ghi đè tree view hiện có để thêm nút import -->
+    <record id="view_crafting_item_tree_inherit" model="ir.ui.view">
+        <field name="name">crafting.item.tree.inherit</field>
+        <field name="model">crafting.item</field>
+        <field name="inherit_id" ref="view_crafting_item_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <header>
+                    <button name="%(action_import_wizard)d" string="Import từ CSV" type="action" class="btn-primary"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+</odoo>

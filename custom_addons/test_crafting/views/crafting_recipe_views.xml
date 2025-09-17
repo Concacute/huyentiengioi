@@ -1,0 +1,54 @@
+<odoo>
+    <!-- Định nghĩa action trước -->
+    <record id="action_crafting_recipe" model="ir.actions.act_window">
+        <field name="name">Recipes</field>
+        <field name="res_model">crafting.recipe</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Recipes -->
+    <menuitem id="menu_crafting_recipes"
+              name="Recipes"
+              parent="menu_crafting_root"
+              action="action_crafting_recipe"
+              sequence="20"/>
+    
+    <!-- Tree & Form view cho Recipe -->
+    <record id="view_crafting_recipe_tree" model="ir.ui.view">
+        <field name="name">crafting.recipe.tree</field>
+        <field name="model">crafting.recipe</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="result_item_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_crafting_recipe_form" model="ir.ui.view">
+        <field name="name">crafting.recipe.form</field>
+        <field name="model">crafting.recipe</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="result_item_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Lưới chế tạo">
+                            <field name="grid_ids">
+                                <tree editable="bottom">
+                                    <field name="row"/>
+                                    <field name="col"/>
+                                    <field name="item_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

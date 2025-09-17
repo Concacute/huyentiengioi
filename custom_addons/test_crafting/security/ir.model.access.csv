@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crafting_item,crafting.item,model_crafting_item,,1,1,1,1
+access_crafting_recipe,crafting.recipe,model_crafting_recipe,,1,1,1,1
+access_crafting_grid_cell,crafting.grid.cell,model_crafting_grid_cell,,1,1,1,1
+access_crafting_import_wizard,crafting.import.wizard,model_crafting_import_wizard,,1,0,0,0
