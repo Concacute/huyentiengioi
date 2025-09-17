@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: odoo-17
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    startCommand: ./start.sh
+    envVars:
+      - key: DB_NAME
+        fromService:
+          name: odoo-db
+          type: postgresql
+          property: database
+      - key: DB_HOST
+        fromService:
+          name: odoo-db
+          type: postgresql
+          property: host
+      - key: DB_PORT
+        fromService:
+          name: odoo-db
+          type: postgresql
+          property: port
+      - key: DB_USER
+        fromService:
+          name: odoo-db
+          type: postgresql
+          property: user
+      - key: DB_PASSWORD
+        fromService:
+          name: odoo-db
+          type: postgresql
+          property: password
+      - key: PGHOST
+        fromService:
+          name: odoo-db
+          type: postgresql
+          property: host
+
+databases:
+  - name: odoo-db
+    plan: free
+    databaseName: odoo
+    user: odoo
