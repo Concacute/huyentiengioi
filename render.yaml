@@ -7,38 +7,12 @@ services:
     startCommand: ./start.sh
     envVars:
       - key: DB_NAME
-        fromService:
-          name: odoo-db
-          type: postgresql
-          property: database
+        value: huyen_tien_gioi
       - key: DB_HOST
-        fromService:
-          name: odoo-db
-          type: postgresql
-          property: host
+        value: dpg-d352do15pdvs73bclae0-a.singapore-postgres.render.com
       - key: DB_PORT
-        fromService:
-          name: odoo-db
-          type: postgresql
-          property: port
+        value: 5432
       - key: DB_USER
-        fromService:
-          name: odoo-db
-          type: postgresql
-          property: user
+        value: huyen_tien_gioi_user
       - key: DB_PASSWORD
-        fromService:
-          name: odoo-db
-          type: postgresql
-          property: password
-      - key: PGHOST
-        fromService:
-          name: odoo-db
-          type: postgresql
-          property: host
-
-databases:
-  - name: odoo-db
-    plan: free
-    databaseName: odoo
-    user: odoo
+        value: voW3RxiatcywjAceUMNB5H8QiaNsxt6I
