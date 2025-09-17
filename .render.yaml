@@ -1,0 +1,18 @@
+# .render.yaml
+services:
+  - type: web
+    name: odoo-website
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    envVars:
+      - key: DB_HOST
+        value: dpg-d352do15pdvs73bclae0-a.singapore-postgres.render.com
+      - key: DB_PORT
+        value: 5432
+      - key: DB_NAME
+        value: huyen_tien_gioi
+      - key: DB_USER
+        value: huyen_tien_gioi_user
+      - key: DB_PASSWORD
+        value: voW3RxiatcywjAceUMNB5H8QiaNsxt6I
