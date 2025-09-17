@@ -9,12 +9,12 @@ ENV DB_USER="huyen_tien_gioi_user"
 ENV DB_PASSWORD="voW3RxiatcywjAceUMNB5H8QiaNsxt6I"
 ENV PGHOST="dpg-d352do15pdvs73bclae0-a.singapore-postgres.render.com"
 
-# Người dùng mặc định của image Odoo là 'odoo'
-USER odoo
-
-# Copy script khởi động vào
+# Copy script khởi động vào và cấp quyền (CHẠY VỚI QUYỀN ROOT)
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
+
+# Chuyển sang user odoo (USER CHỈ ĐƯỢC ĐẶT Ở CUỐI DOCKERFILE)
+USER odoo
 
 # Thiết lập lệnh khởi động
 CMD ["/start.sh"]
