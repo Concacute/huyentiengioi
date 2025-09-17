@@ -1,14 +1,13 @@
-# Dockerfile
 FROM odoo:17.0
 
-# Copy file cấu hình vào container
+# Copy file cấu hình
 COPY odoo.conf /etc/odoo/
 
-# Expose port 80 để Render có thể mapping
+# Expose port 80
 EXPOSE 80
 
-# Sử dụng user mặc định của Odoo image
+# Sử dụng user odoo
 USER odoo
 
-# Lệnh khởi chạy Odoo
-CMD ["odoo", "--config=/etc/odoo/odoo.conf"]
+# Lệnh khởi chạy BUỘC khởi tạo base
+CMD ["sh", "-c", "odoo --config=/etc/odoo/odoo.conf --init base --without-demo=all --stop-after-init && odoo --config=/etc/odoo/odoo.conf"]
