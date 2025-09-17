@@ -1,6 +1,15 @@
 #!/bin/bash
 set -e
 
+# IN RA BIẾN MÔI TRƯỜNG ĐỂ KIỂM TRA (DEBUG)
+echo "=== DEBUG: Environment Variables ==="
+echo "DB_NAME: $DB_NAME"
+echo "DB_HOST: $DB_HOST"
+echo "DB_PORT: $DB_PORT"
+echo "DB_USER: $DB_USER"
+echo "DB_PASSWORD: $DB_PASSWORD"
+echo "==================================="
+
 # Lệnh khởi chạy Odoo
 exec ./odoo-bin \
     --database="$DB_NAME" \
