@@ -2,7 +2,7 @@ FROM odoo:17
 
 USER root
 
-# Tạo thư mục addons custom
+# Chỉ tạo thư mục addons, không cài wkhtmltopdf
 RUN mkdir -p /mnt/extra-addons
 VOLUME /mnt/extra-addons
 
